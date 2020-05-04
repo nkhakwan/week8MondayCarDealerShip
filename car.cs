@@ -1,5 +1,5 @@
 using System;
-using System.collections.Generic;
+using System.Collections.Generic;
 
 
   public class Car
@@ -10,7 +10,7 @@ using System.collections.Generic;
     public string Color;
     public int Mileage;
 
-    public Car(sting make, int price, int year, string color, int mileage)
+    public Car(string make, int price, int year, string color, int mileage)
     {
       Make = make;
       Price = price;
@@ -30,7 +30,7 @@ using System.collections.Generic;
     }
   }
 
-  Public class Program
+  public class Program
   {
 
     public static void Main()
@@ -40,17 +40,19 @@ using System.collections.Generic;
       Car gm     = new Car ("prizm", 4200, 1994, "white", 81000 );
       Car honda  = new Car ("Accord", 8300, 1994, "green", 47000);
 
-      List<Car> myList = new List(){suzuki, hyndai, gm, honda};
+      List<Car> myList = new List<Car>() {suzuki, hyndai, gm, honda};
+     // List<Car> Cars = new List<Car>(){ volkswagen, yugo, ford, amc };
 
       Console.WriteLine ("What is your budget? :");
-      sting customerBudget = Console.ReadLine();
+      string customerBudget = Console.ReadLine();
       int theBudget = int.Parse(customerBudget);
 
-      List<Car> myOutput = new List(0);
+      List<Car> myOutput = new List<Car>(0);
+      //List<Car> CarsMatchingSearch = new List<Car>(0);
 
       foreach (Car auto in myList )
       {
-        if (InBudget(theBudget))
+        if (auto.InBudget(theBudget))
         {
           myOutput.Add(auto);
         }
