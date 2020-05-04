@@ -1,55 +1,69 @@
 using System;
-using System.Collections.Generic;
+using System.collections.Generic;
 
-public class Car
-{
-  public string MakeModel;
-  public int Price;
-  public int Miles;
 
-  public Car(string makeModel, int price, int miles)
+  public class Car
   {
-    MakeModel = makeModel;
-    Price = price;
-    Miles = miles;
-  }
+    public string Make;
+    public int Price;
+    public int Year;
+    public string Color;
+    public int Mileage;
 
-  public bool WorthBuying(int maxPrice)
-  {
-    return (Price < maxPrice);
-  }
-}
-
-public class Program
-{
-  public static void Main()
-  {
-    Car volkswagen = new Car("1974 Volkswagen Thing", 1100, 368792);
-    Car yugo = new Car("1980 Yugo Koral", 700, 56000);
-    Car ford = new Car("1988 Ford Country Squire", 1400, 239001);
-    Car amc = new Car("1976 AMC Pacer", 400, 198000);
-
-    List<Car> Cars = new List<Car>() { volkswagen, yugo, ford, amc };
-
-    Console.WriteLine("Enter maximum price: ");
-    string stringMaxPrice = Console.ReadLine();
-    int maxPrice = int.Parse(stringMaxPrice);
-
-    List<Car> CarsMatchingSearch = new List<Car>(0);
-
-    foreach (Car automobile in Cars)
+    public Car(sting make, int price, int year, string color, int mileage)
     {
-      if (automobile.WorthBuying(maxPrice))
+      Make = make;
+      Price = price;
+      Year = year;
+      Color = color;
+      Mileage = mileage;
+    }
+
+    public bool InBudget(int myBudget)
+    {
+      return (Price<myBudget);
+    }
+
+    public bool DesiredColor(string myColor)
+    {
+      return(myColor == Color);
+    }
+  }
+
+  Public class Program
+  {
+
+    public static void Main()
+    {
+      Car suzuki = new Car ("alto", 1902, 1992, "grey", 56000);
+      Car hyndai = new Car ("Santro", 5000, 2003, "light grey", 50000);
+      Car gm     = new Car ("prizm", 4200, 1994, "white", 81000 );
+      Car honda  = new Car ("Accord", 8300, 1994, "green", 47000);
+
+      List<Car> myList = new List(){suzuki, hyndai, gm, honda};
+
+      Console.WriteLine ("What is your budget? :");
+      sting customerBudget = Console.ReadLine();
+      int theBudget = int.Parse(customerBudget);
+
+      List<Car> myOutput = new List(0);
+
+      foreach (Car auto in myList )
       {
-        CarsMatchingSearch.Add(automobile);
+        if (InBudget(theBudget))
+        {
+          myOutput.Add(auto);
+        }
       }
-    }
+      foreach ( Car auto in myOutput)
+      {
+        Console.WriteLine(auto.Make);
+        Console.WriteLine(auto.Price);
+        Console.WriteLine(auto.Color);
+        Console.WriteLine(auto.Mileage);
+      }
 
-    foreach(Car automobile in CarsMatchingSearch)
-    {
-      Console.WriteLine(automobile.MakeModel);
-      Console.WriteLine(automobile.Price);
 
     }
   }
-}
+
