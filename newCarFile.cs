@@ -38,9 +38,15 @@ using System.collections.Generic;
       Car suzuki = new Car ("alto", 1902, 1992, "grey", 56000);
       Car hyndai = new Car ("Santro", 5000, 2003, "light grey", 50000);
       Car gm     = new Car ("prizm", 4200, 1994, "white", 81000 );
-      Car Honda  = new Car ("Accord", 8300, 1994, "green", 47000);
+      Car honda  = new Car ("Accord", 8300, 1994, "green", 47000);
 
-      List
+      List<Car> myList = new List(){suzuki, hyndai, gm, honda};
+
+      Console.WriteLine ("What is your budget? :");
+      sting customerBudget = Console.ReadLine();
+      int theBudget = int.Parse(customerBudget);
+
+      List<Car> myOutput = new List(0);
 
 
 
