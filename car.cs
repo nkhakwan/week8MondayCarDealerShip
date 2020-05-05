@@ -1,71 +1,69 @@
 using System;
 using System.Collections.Generic;
 
+public class ShowRoom
+{
+  public string Make;
+  public int Mileage;
+  public int Price;
+  public string Color;
 
-  public class Car
+  public ShowRoom (string make, int mileage, int price, string color)
+  { 
+    Make = make;
+    Mileage = mileage;
+    Price = price;
+    Color = color;
+  }
+  
+  public bool WithinBudget(int budget)
   {
-    public string Make;
-    public int Price;
-    public int Year;
-    public string Color;
-    public int Mileage;
+    return (budget> Price);
+  }
+}
 
-    public Car(string make, int price, int year, string color, int mileage)
+public class Program
+{
+
+  public static void Main()
+  {
+    ShowRoom suzuki = new ShowRoom ("alto",56000, 1902, "grey");
+    ShowRoom hyndai = new ShowRoom ("Santro", 50000, 5000, "light grey");
+    ShowRoom gm     = new ShowRoom ("prizm", 81000, 4200,  "white" );
+    ShowRoom honda  = new ShowRoom ("Accord", 47000, 8300,  "green");
+
+    List<ShowRoom> MyCarsList = new List<ShowRoom> {suzuki, hyndai, gm, honda};
+
+    Console.WriteLine ("what is your budget?");
+    string Answer = Console.ReadLine();
+    int Budget = int.Parse(Answer);
+
+    List<ShowRoom> UnderBudgetCars = new List<ShowRoom>(0);
+
+    foreach (ShowRoom auto in MyCarsList)
     {
-      Make = make;
-      Price = price;
-      Year = year;
-      Color = color;
-      Mileage = mileage;
+      if (auto.WithinBudget(Budget))
+      {
+        UnderBudgetCars.Add(auto);
+      }
     }
 
-    public bool InBudget(int myBudget)
+    foreach (ShowRoom auto in UnderBudgetCars)
     {
-      return (Price<myBudget);
+      Console.WriteLine(auto.Price);
+
     }
 
-    public bool DesiredColor(string myColor)
-    {
-      return(myColor == Color);
-    }
+
+
   }
 
-  public class Program
-  {
-
-    public static void Main()
-    {
-      Car suzuki = new Car ("alto", 1902, 1992, "grey", 56000);
-      Car hyndai = new Car ("Santro", 5000, 2003, "light grey", 50000);
-      Car gm     = new Car ("prizm", 4200, 1994, "white", 81000 );
-      Car honda  = new Car ("Accord", 8300, 1994, "green", 47000);
-
-      List<Car> myList = new List<Car>() {suzuki, hyndai, gm, honda};
-     // List<Car> Cars = new List<Car>(){ volkswagen, yugo, ford, amc };
-
-      Console.WriteLine ("What is your budget? :");
-      string customerBudget = Console.ReadLine();
-      int theBudget = int.Parse(customerBudget);
-
-      List<Car> myOutput = new List<Car>(0);
-      //List<Car> CarsMatchingSearch = new List<Car>(0);
-
-      foreach (Car auto in myList )
-      {
-        if (auto.InBudget(theBudget))
-        {
-          myOutput.Add(auto);
-        }
-      }
-      foreach ( Car auto in myOutput)
-      {
-        Console.WriteLine(auto.Make);
-        Console.WriteLine(auto.Price);
-        Console.WriteLine(auto.Color);
-        Console.WriteLine(auto.Mileage);
-      }
 
 
-    }
-  }
+}
+
+
+
+
+
 

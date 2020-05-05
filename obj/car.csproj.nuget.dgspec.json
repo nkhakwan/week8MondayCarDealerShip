@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\epost\\cSharp\\week8Monday\\car.csproj": {}
+    "c:\\Users\\epost\\cSharp\\week8Monday\\car.csproj": {}
   },
   "projects": {
-    "C:\\Users\\epost\\cSharp\\week8Monday\\car.csproj": {
+    "c:\\Users\\epost\\cSharp\\week8Monday\\car.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\epost\\cSharp\\week8Monday\\car.csproj",
+        "projectUniqueName": "c:\\Users\\epost\\cSharp\\week8Monday\\car.csproj",
         "projectName": "car",
-        "projectPath": "C:\\Users\\epost\\cSharp\\week8Monday\\car.csproj",
+        "projectPath": "c:\\Users\\epost\\cSharp\\week8Monday\\car.csproj",
         "packagesPath": "C:\\Users\\epost\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\epost\\cSharp\\week8Monday\\obj\\",
+        "outputPath": "c:\\Users\\epost\\cSharp\\week8Monday\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
